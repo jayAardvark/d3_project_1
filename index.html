@@ -1,4 +1,33 @@
-  <h1 id="title">D3 Project 1</h1>
+<script>
+  d3.selectAll("li")
+  .text("test");
+
+const w = 500;
+const h = 100;
+
+const svg = d3.select("graphContainer")
+              .append("svg")
+              .attr("width", w)
+              .attr("height", h);
+let data;
+let req=new XMLHttpRequest();
+         req.open("GET",'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json',true);
+req.send();
+req.onload=function(){
+  let json=JSON.parse(req.responseText);
+  data=json.data;
+  console.log(data);
+  d3.select("body").selectAll("h2")
+    .data(data)
+    .enter()
+    .append("h2")
+    .text(data => data[1])
+};
+      
+
+</script>
+
+<h1 id="title">D3 Project 1</h1>
   <ul>
     <li>item</li>
     <li>item</li>
