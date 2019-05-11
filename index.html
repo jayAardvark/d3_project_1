@@ -20,11 +20,11 @@ req.onload=function(){
        .data(data)
        .enter()
        .append("rect")
-       .attr("x", (d, i) => i * 2.5)
-       .attr("y", 0)
-       .attr("width", 2)
+       .attr("x", (d, i) => i * 2.3)
+       .attr("y", (d, i) => {return h - d[1]*0.03})
+       .attr("width", 1.5)
        .attr("height", (d, i) => {
-         return d[1] * 0.05;
+         return d[1] * 0.03;
        });
 };
       
